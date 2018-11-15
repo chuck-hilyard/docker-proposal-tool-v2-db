@@ -1,2 +1,3 @@
-2 0 * * * if [ -d /data/db ] mkdir /data/db/`date '+%Y-%m-%d-%H00'` else: fi
-10 2-22 * * * aws s3 sync /data/db s3://proposal-tool-v2-db-${environment}-${platform}
+1 * * * * if [ -d /data/db ]; then mkdir /data/db/`date '+%Y-%m-%d-%H00'`; else :; fi
+10 * * * * mongodump -u admin -p admin  -o /data/db/`date '+%Y-%m-%d-%H00'`
+20 * * * * aws s3 sync /data/db/`date '+%Y-%m-%d-%H00'` s3://proposal-tool-v2-db-$(echo ${environment})-$(echo ${platform})
