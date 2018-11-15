@@ -1,0 +1,2 @@
+2 0 * * * if [ -d /data/db ] mkdir /data/db/`date '+%Y-%m-%d-%H00'` else: fi
+10 2-22 * * * aws s3 sync /data/db s3://proposal-tool-v2-db-${environment}-${platform}
