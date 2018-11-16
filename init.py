@@ -20,7 +20,7 @@ def start_services():
 def main():
   while True:
     print("main loop")
-  time.sleep(60)
+    time.sleep(60)
 
 
 if __name__ == '__main__':
