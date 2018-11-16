@@ -80,6 +80,8 @@ RUN set -x \
 		${MONGO_PACKAGE}-tools=$MONGO_VERSION \
     cron \
     awscli \
+    python3 \
+    python3-pip \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /var/lib/mongodb \
 	&& mv /etc/mongod.conf /etc/mongod.conf.orig 
@@ -94,6 +96,5 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 27017
 #CMD ["mongod"]
-COPY ./init.sh /tmp/init.sh
-RUN chmod 700 /tmp/init.sh
-CMD ["/tmp/init.sh"]
+COPY ./init.py /tmp/init.py
+CMD [ "python3", "-u", "/tmp/init.py" ]
