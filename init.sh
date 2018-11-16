@@ -1,6 +1,9 @@
 #!/bin/bash
 
+echo "starting cron"
 service cron start
+sleep 5
+echo "starting mongod"
 mongod
 
 
