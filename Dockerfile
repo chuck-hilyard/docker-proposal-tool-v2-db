@@ -93,4 +93,7 @@ COPY crontab /var/spool/cron/crontabs/root
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 27017
-CMD ["mongod"]
+#CMD ["mongod"]
+COPY ./init.sh /tmp/init.sh
+RUN chmod 700 /tmp/init.sh
+CMD ["/tmp/init.sh"]
