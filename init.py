@@ -15,7 +15,7 @@ def start_services():
   print("starting cron")
   subprocess.run(["service", "cron", "start"])
   time.sleep(10)
-  subprocess.run(["mongod"])
+  subprocess.run(["mongod", "--auth"])
 
 def main():
   while True:
