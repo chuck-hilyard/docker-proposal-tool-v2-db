@@ -94,9 +94,9 @@ VOLUME /data/db /data/configdb
 
 COPY docker-entrypoint.sh /usr/local/bin/
 # custom rl stuff
-COPY crontab /var/spool/cron/crontabs/root
-ENV environment dev
-ENV platform usa
+#COPY crontab /var/spool/cron/crontabs/root
+#ENV environment dev
+#ENV platform usa
 
 
 ENTRYPOINT ["docker-entrypoint.sh"]
@@ -104,5 +104,6 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 EXPOSE 27017
 
 # custom rl stuff
-COPY ./init.py /tmp/init.py
-CMD [ "python3", "-u", "/tmp/init.py" ]
+#COPY ./init.py /tmp/init.py
+#CMD [ "python3", "-u", "/tmp/init.py" ]
+CMD [ "mongod" ]

@@ -15,6 +15,8 @@ def start_services():
   print("starting cron")
   subprocess.run(["service", "cron", "start"])
   time.sleep(10)
+  print("username: ", os.environ['MONGO_INITDB_ROOT_USERNAME'])
+  print("password: ", os.environ['MONGO_INITDB_ROOT_PASSWORD'])
   subprocess.run(["mongod", "--auth", "--bind_ip_all"])
 
 def main():
