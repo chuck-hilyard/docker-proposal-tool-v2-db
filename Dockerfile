@@ -81,6 +81,7 @@ RUN set -x \
     cron \
     awscli \
     s3cmd \
+    rsyslog \
     python3 \
     python3-pip \
 	&& rm -rf /var/lib/apt/lists/* \
