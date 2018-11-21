@@ -99,7 +99,7 @@ ENV environment dev
 ENV platform usa
 
 
-ENTRYPOINT ["sh", "-c", "docker-entrypoint.sh"]
+ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 27017
 
