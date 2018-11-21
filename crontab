@@ -1,4 +1,4 @@
 1 * * * * if [ -d /data/db ]; then mkdir -p /data/db/backups/`date '+%Y-%m-%d-%H00'`; else :; fi
 10 * * * * mongodump -u admin -p admin  -o /data/db/backups/`date '+%Y-%m-%d-%H00'`
-20 * * * * aws s3 sync /data/db/backups/`date '+%Y-%m-%d-%H00'` s3://proposal-tool-v2-db-$(echo ${environment})-$(echo ${platform})
-
+#20 * * * * aws s3 sync /data/db/backups/`date '+%Y-%m-%d-%H00'` s3://proposal-tool-v2-db-$(echo ${environment})-$(echo ${platform})
+20 * * * * s3cmd put --recursive /data/db/backups/`date '+%Y-%m-%d-%H00'` s3://proposal-tool-v2-db-$(echo ${environment})-$(echo ${platform})/`date '+%Y-%m-%d-%H00'`

@@ -80,6 +80,7 @@ RUN set -x \
 		${MONGO_PACKAGE}-tools=$MONGO_VERSION \
     cron \
     awscli \
+    s3cmd \
     python3 \
     python3-pip \
 	&& rm -rf /var/lib/apt/lists/* \
