@@ -78,24 +78,16 @@ RUN set -x \
 		${MONGO_PACKAGE}-shell=$MONGO_VERSION \
 		${MONGO_PACKAGE}-mongos=$MONGO_VERSION \
 		${MONGO_PACKAGE}-tools=$MONGO_VERSION \
-    cron \
-    awscli \
-    s3cmd \
-    rsyslog \
-    python3 \
-    python3-pip \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /var/lib/mongodb \
-	&& mv /etc/mongod.conf /etc/mongod.conf.orig 
+	&& mv /etc/mongod.conf /etc/mongod.conf.orig
 
 RUN mkdir -p /data/db /data/configdb \
 	&& chown -R mongodb:mongodb /data/db /data/configdb
 VOLUME /data/db /data/configdb
 
 COPY docker-entrypoint.sh /usr/local/bin/
-
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 27017
-
-CMD [ "mongod" ]
+CMD ["mongod"]
